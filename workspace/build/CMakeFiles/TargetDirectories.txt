@@ -1,0 +1,3 @@
+/home/vboxmarni/57545/SII-57545/workspace/build/CMakeFiles/tenis.dir
+/home/vboxmarni/57545/SII-57545/workspace/build/CMakeFiles/edit_cache.dir
+/home/vboxmarni/57545/SII-57545/workspace/build/CMakeFiles/rebuild_cache.dir
