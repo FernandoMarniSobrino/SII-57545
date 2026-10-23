@@ -158,6 +158,13 @@ void CMundo::OnTimer(int value)
 	sprintf(cad, "Jugador 1 marca 1 punto, lleva un total de %d puntos.\n",puntos1);
 	write(fd,cad,strlen(cad));
 	}
+	
+	if(puntos1==3 || puntos2==3) {
+	 char fin[100];
+	 sprintf(fin, "Fin de la partida. Jugador1 %d-%d Jugador2.\n",puntos1, puntos2);
+	 write(fd,fin,strlen(fin));
+	 exit(0);
+	 } 
 }
 
 void CMundo::OnKeyboardDown(unsigned char key, int x, int y)
