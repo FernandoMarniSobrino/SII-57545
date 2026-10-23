@@ -64,6 +64,7 @@ CMAKE_BINARY_DIR = /home/vboxmarni/57545/SII-57545/workspace/build
 
 # The main recursive "all" target.
 all: CMakeFiles/tenis.dir/all
+all: CMakeFiles/logger.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -72,6 +73,7 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/tenis.dir/clean
+clean: CMakeFiles/logger.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -81,7 +83,7 @@ clean: CMakeFiles/tenis.dir/clean
 CMakeFiles/tenis.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tenis.dir/build.make CMakeFiles/tenis.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tenis.dir/build.make CMakeFiles/tenis.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/vboxmarni/57545/SII-57545/workspace/build/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target tenis"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/vboxmarni/57545/SII-57545/workspace/build/CMakeFiles --progress-num=3,4,5,6,7,8,9 "Built target tenis"
 .PHONY : CMakeFiles/tenis.dir/all
 
 # Build rule for subdir invocation for target.
@@ -99,6 +101,32 @@ tenis: CMakeFiles/tenis.dir/rule
 CMakeFiles/tenis.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tenis.dir/build.make CMakeFiles/tenis.dir/clean
 .PHONY : CMakeFiles/tenis.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/logger.dir
+
+# All Build rule for target.
+CMakeFiles/logger.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/logger.dir/build.make CMakeFiles/logger.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/logger.dir/build.make CMakeFiles/logger.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/vboxmarni/57545/SII-57545/workspace/build/CMakeFiles --progress-num=1,2 "Built target logger"
+.PHONY : CMakeFiles/logger.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/logger.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vboxmarni/57545/SII-57545/workspace/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/logger.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vboxmarni/57545/SII-57545/workspace/build/CMakeFiles 0
+.PHONY : CMakeFiles/logger.dir/rule
+
+# Convenience name for target.
+logger: CMakeFiles/logger.dir/rule
+.PHONY : logger
+
+# clean rule for target.
+CMakeFiles/logger.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/logger.dir/build.make CMakeFiles/logger.dir/clean
+.PHONY : CMakeFiles/logger.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
