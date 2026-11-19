@@ -10,6 +10,9 @@
 #include <math.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <sys/mman.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
@@ -23,6 +26,7 @@ CMundo::CMundo()
 CMundo::~CMundo()
 {
    close(fd);
+   munmap(datos,sizeof(DatosMemCompartida));
 }
 
 void CMundo::InitGL()
@@ -165,6 +169,17 @@ void CMundo::OnTimer(int value)
 	 write(fd,fin,strlen(fin));
 	 exit(0);
 	 } 
+	 
+	 datos->esfera=esfera;
+	 datos->raqueta1=jugador1;
+	 if(datos->accion==-1){
+	 OnKeyboardDown('s',0,0);
+	 }
+	 else if(datos->accion==1){
+	 OnKeyboardDown('w',0,0);
+	 }
+	 else (datos->accion==0);
+	 	 
 }
 
 void CMundo::OnKeyboardDown(unsigned char key, int x, int y)
@@ -184,10 +199,31 @@ void CMundo::OnKeyboardDown(unsigned char key, int x, int y)
 void CMundo::Init()
 {
 	Plano p;
+	char *direccion;
+	int fd2;
+	
 	fd = open("/tmp/fifo", O_WRONLY);
+    
     if (fd < 0) {
         perror("No puede abrirse el FIFO");
     }
+    
+    fd2=open("/tmp/tenisbot",O_RDWR|O_CREAT|O_TRUNC,0666);
+    if (fd2 == -1)
+	{
+		perror("Error al abrir el archivo"); 
+		
+	}
+  
+    ftruncate(fd2,sizeof(DatosMemCompartida));
+    direccion=(char*)mmap(NULL,sizeof(*datos),PROT_READ|PROT_WRITE,MAP_SHARED,fd2,0);
+   if (direccion == MAP_FAILED)
+	{
+		perror("Error en la proyeccion mmap"); 
+	
+	}
+    close(fd2);
+    datos=(DatosMemCompartida*)direccion;
 //pared inferior
 	p.x1=-7;p.y1=-5;
 	p.x2=7;p.y2=-5;
