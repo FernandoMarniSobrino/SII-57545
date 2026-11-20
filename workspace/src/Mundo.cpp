@@ -173,12 +173,14 @@ void CMundo::OnTimer(int value)
 	 datos->esfera=esfera;
 	 datos->raqueta1=jugador1;
 	 if(datos->accion==-1){
-	 OnKeyboardDown('s',0,0);
+	 jugador1.velocidad.y=-4;
 	 }
 	 else if(datos->accion==1){
-	 OnKeyboardDown('w',0,0);
+	 jugador1.velocidad.y=4;
 	 }
-	 else (datos->accion==0);
+	 else {
+	 jugador1.velocidad.y=0;
+	 }
 	 	 
 }
 

@@ -36,15 +36,12 @@ int main(int argc,char* argv[])
 		// X3 Completar la lógica
 		// dat->raqueta, por ejemplo, accede al identificador del jugador
 		float centro=(dat->raqueta1.y1+dat->raqueta1.y2)/2.0f;
-		if(dat->esfera.centro.y<centro-0.1f){
-		dat->accion=-1;
-		}
-		else if(dat->esfera.centro.y>centro + 0.1f){
-		dat->accion=1;
-		}
-		else {
-		dat->accion=0;
-		}
+		float objetivo=(dat->esfera.velocidad.x<0) ? dat->esfera.centro.y : 0.0f;
+		float error=objetivo-centro;
+		if(error<-0.15f) dat->accion=-1;
+		else if(error>0.15f) dat->accion=1;
+		else dat->accion=0;
+		
 	}
 	
 }
